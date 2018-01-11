@@ -1,0 +1,16 @@
+#!/bin/bash
+
+CONT_NAME="tender_bhabha"
+
+state=$(sudo docker inspect -f {{.State.Running}}  $CONT_NAME)
+if [ $state == "true" ]
+    then
+    sudo docker attach $CONT_NAME
+elif [ $state == "false" ]
+    then
+    sudo docker start $CONT_NAME
+    sudo docker attach $CONT_NAME
+else
+    echo "somethign is wrong, check if docker is running correctly and $CONT_NAME was created"
+    exit 1
+fi

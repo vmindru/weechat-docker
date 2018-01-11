@@ -1,0 +1,5 @@
+# Run weechat in a Docker container
+
+## Build the container
+
+### Update weechat script with the container name and place it in your /home/$USER/bin dir
